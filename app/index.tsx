@@ -1,15 +1,21 @@
-import { Text, View } from "react-native";
+import { View, Text } from "react-native";
+import { useTheme } from "@/common/hooks/useTheme";
+import { Link } from "expo-router";
 
 export default function Index() {
+  const theme = useTheme();
+
   return (
     <View
       style={{
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
+        padding: 32,
+        backgroundColor: theme.colors.background,
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      <Link href={"/films"}>
+        <Text>See Films</Text>
+      </Link>
     </View>
   );
 }
