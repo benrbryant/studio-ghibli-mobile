@@ -54,6 +54,18 @@ hooks/      -> custom hooks
 utils/      -> utility functions or artifacts
 ```
 
+## Sample Data
+
+This project will utilize the [Studio Ghibli API](https://ghibliapi.vercel.app/) for sample data. No API key is required.
+
+Data includes:
+
+- films
+- people
+- locations
+- species
+- vehicles
+
 ## Learn more
 
 To learn more, look at the following resources:
