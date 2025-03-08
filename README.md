@@ -45,13 +45,12 @@ app/
          settings.tsx
 ```
 
-All other none-screen files are defined _outside_ of the `app/` directory in their appropriate folders.
+All other non-screen files are defined _outside_ of the `app/` directory in their appropriate folders.
 
 ```txt
-components/ -> components, organized by their domain (i.e. Films, Authors, ui etc)
-constants/  -> constants values
-hooks/      -> custom hooks
-utils/      -> utility functions or artifacts
+features/ -> components, organized by their domain (i.e. book, author etc)
+common/   -> reusable components, hooks, utils, etc
+assets/   -> fonts, images, etc
 ```
 
 ## Sample Data
