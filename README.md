@@ -1,8 +1,10 @@
-# Welcome to your Expo app 👋
+# Studio Ghibli Mobile App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Weekend hackathon to experience expo-router features.
 
 ## Get started
+
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
 1. Install dependencies
 
@@ -25,26 +27,38 @@ In the output, you'll find options to open the app in a
 
 You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Get a fresh project
+## Project Structure
 
-When you're ready, run:
+Expo Router enables **file-based** routing where routes are determined by directory and file location and names. Stacks, screens, tabs, drawers, etc start in the `app/` directory
+and are defined in local `_layout.(tsx|jsx)` files. Tabs are defined in local `(tabs)` directories. Here is an example:
 
-```bash
-npm run reset-project
+```txt
+app/
+   _layout.tsx // root stack defined
+   index.tsx // root screen
+   about.tsx // about screen in root stack
+   cars/
+      _layout.tsx
+      (tabs)/
+         make.tsx
+         add.tsx
+         settings.tsx
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+All other none-screen files are defined _outside_ of the `app/` directory in their appropriate folders.
+
+```txt
+components/ -> components, organized by their domain (i.e. Films, Authors, ui etc)
+constants/  -> constants values
+hooks/      -> custom hooks
+utils/      -> utility functions or artifacts
+```
 
 ## Learn more
 
-To learn more about developing your project with Expo, look at the following resources:
+To learn more, look at the following resources:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- [Expo documentation](https://docs.expo.dev/)
+- [React Native documentation](https://reactnative.dev/)
+- [React Navigation documentation](https://reactnavigation.org/)
+- [Expo Router documentation](https://docs.expo.dev/router/introduction/)
