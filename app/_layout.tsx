@@ -17,8 +17,30 @@ export default function RootLayout() {
       <ThemeProvider>
         <SafeAreaProvider>
           <Stack>
-            <Stack.Screen name="index" options={{ title: "Home" }} />
-            <Stack.Screen name="films" options={{ title: "Films" }} />
+            <Stack.Screen
+              name="(tabs)"
+              options={{ headerShown: false, headerBackTitle: "Back" }}
+            />
+            <Stack.Screen
+              name="films/[id]"
+              options={{ title: "Film", headerBackTitle: "Back" }}
+            />
+            <Stack.Screen
+              name="people/[id]"
+              options={{ title: "Person", headerBackTitle: "Back" }}
+            />
+            <Stack.Screen
+              name="species/[id]"
+              options={{ title: "Species", headerBackTitle: "Back" }}
+            />
+            <Stack.Screen
+              name="locations/[id]"
+              options={{ title: "Location", headerBackTitle: "Back" }}
+            />
+            <Stack.Screen
+              name="vehicles/[id]"
+              options={{ title: "Vehicles", headerBackTitle: "Back" }}
+            />
           </Stack>
         </SafeAreaProvider>
       </ThemeProvider>
