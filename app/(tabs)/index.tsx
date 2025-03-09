@@ -3,34 +3,7 @@ import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { useTheme } from "@/common/hooks/useTheme";
 import { useRouter } from "expo-router";
 import TitleText from "@/common/components/ui/TitleText";
-
-const RESOURCE_LINKS: { title: string; url: any; color: string }[] = [
-  {
-    title: "Films",
-    url: "/lists?type=films",
-    color: "#74B3CE",
-  },
-  {
-    title: "People",
-    url: "/lists?type=people",
-    color: "#508991",
-  },
-  {
-    title: "Species",
-    url: "/lists?type=species",
-    color: "#8A89C0",
-  },
-  {
-    title: "Locations",
-    url: "/lists?type=locations",
-    color: "#CDA2AB",
-  },
-  {
-    title: "Vehicles",
-    url: "/lists?type=vehicles",
-    color: "#09BC8A",
-  },
-];
+import { RESOURCES } from "@/common/constants/resources";
 
 export default function HomeScreen() {
   const theme = useTheme();
@@ -43,6 +16,10 @@ export default function HomeScreen() {
     card: {
       borderRadius: theme.roundness.md,
     },
+    title: {
+      color: theme.colors.text,
+      borderColor: theme.colors.text,
+    },
   };
 
   return (
@@ -53,14 +30,22 @@ export default function HomeScreen() {
         backgroundColor: theme.colors.background,
       }}
     >
-      <TitleText title="Resources" type="xl" style={styles.title} />
+      <TitleText
+        title="Resources"
+        type="xl"
+        style={{ ...styles.title, ...dynamicStyles.title }}
+      />
       <View>
-        {RESOURCE_LINKS.map((resource) => (
+        {RESOURCES.map((resource) => (
           <Pressable
-            onPress={() => router.push(resource.url)}
-            key={resource.url}
+            onPress={() => router.push(resource.list_url)}
+            key={resource.id}
             style={[
-              { borderWidth: 5, borderColor: resource.color, backgroundColor: "#eee" },
+              {
+                borderWidth: 5,
+                borderColor: resource.color,
+                backgroundColor: "#eee",
+              },
               dynamicStyles.card,
               styles.card,
             ]}
