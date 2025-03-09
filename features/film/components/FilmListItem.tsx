@@ -1,10 +1,12 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { Text, StyleSheet, Image, Pressable } from "react-native";
+import { useRouter } from "expo-router";
 import { useTheme } from "@/common/hooks/useTheme";
 import { Film } from "../types";
 import { ReactNode } from "react";
 
-export default function FilmListItem({ title, movie_banner }: Film): ReactNode {
+export default function FilmListItem({ id, title, movie_banner }: Film): ReactNode {
   const theme = useTheme();
+  const router = useRouter();
 
   const dynamicStyles = {
     container: {
@@ -18,10 +20,10 @@ export default function FilmListItem({ title, movie_banner }: Film): ReactNode {
   };
 
   return (
-    <View style={[dynamicStyles.container, styles.container]}>
+    <Pressable style={[dynamicStyles.container, styles.container]} onPress={() => router.push(`/films/${id}`)}>
       <Image source={{ uri: movie_banner }} style={styles.image} />
       <Text style={[dynamicStyles.text, styles.text]}>{title}</Text>
-    </View>
+    </Pressable>
   );
 }
 
