@@ -1,14 +1,15 @@
 import { ReactElement } from "react";
-import { Text, StyleSheet } from "react-native";
+import { Text, StyleSheet, TextStyle } from "react-native";
 import { useTheme } from "@/common/hooks/useTheme";
 
 export default function TitleText({
   type = "sm",
   title,
+  style,
 }: TitleTextProps): ReactElement {
   const theme = useTheme();
   return (
-    <Text style={{ fontSize: theme.fontSizes[type], ...styles.title }}>
+    <Text style={[{ fontSize: theme.fontSizes[type] }, styles.title, style]}>
       {title}
     </Text>
   );
@@ -24,4 +25,5 @@ const styles = StyleSheet.create({
 type TitleTextProps = {
   type?: "xs" | "sm" | "md" | "lg" | "xl";
   title?: string;
+  style?: TextStyle;
 };
